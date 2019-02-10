@@ -1,2 +1,4 @@
 .ipynb_checkpoints/
 scratch*
+nohup*
+.n4jpass
