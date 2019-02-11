@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 scratch*
 __pycache__/
+nohup*
+.n4jpass
