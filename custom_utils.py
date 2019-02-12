@@ -32,8 +32,8 @@ def soundAlert(duration =0.05):
     sound = Audio(data,rate=framerate, autoplay=True)
 
     display(sound)
-    sleep(duration + 0.5)
-    clear_output()
+    # sleep(duration + 0.5)
+    # clear_output()
 
 
 def printRunTime(start_time, sound=True, sound_duration=0.1):
