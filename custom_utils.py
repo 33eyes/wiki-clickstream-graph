@@ -7,6 +7,7 @@ from timeit import default_timer as timer
 import pandas as pd
 import numpy as np
 
+import os
 
 
 def printPkgContents(pkg):
@@ -43,3 +44,25 @@ def printRunTime(start_time, sound=True, sound_duration=0.1):
         soundAlert(sound_duration)
 
     print("Runtime:", round((end_time - start_time)/60, 2), "min\n")
+
+
+def read_n4jpass():
+    """Reads neo4j connection credentials from .n4jpass file in current folder.
+    Expects one value per line, ignores comments, e.g.:
+    # comments here
+    user=neo4j
+    password=secretStuff123
+    """
+    
+    cur_folder = os.getcwd()
+    
+    with open(cur_folder + '/.n4jpass', 'r') as f:
+        lines = f.readlines()
+
+    d = {}
+    for l in lines:
+        if l.strip() and (l[0] != '#'):
+            k, v = l.strip().split('=')
+            d[k] = v
+
+    return d
