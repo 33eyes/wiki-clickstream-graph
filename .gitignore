@@ -3,3 +3,4 @@ scratch*
 __pycache__/
 nohup*
 .n4jpass
+pickles/
