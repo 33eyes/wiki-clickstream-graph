@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <title>English Wikipedia clickstream graph for 12/18</title>
+    <style type="text/css">
+        html, body {
+            font: 16pt arial;
+        }
+
+        #viz {
+            width: 1800px;
+            height: 1000px;
+            border: 1px solid lightgray;
+            font: 42pt arial;
+        }
+
+    </style>
+
+    <!-- <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+
+-->
+    <script src="https://cdn.neo4jlabs.com/neovis.js/v1.0.0/neovis.js"></script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        // define config car
+        // instantiate nodevis object
+        // draw
+
+        var viz;
+
+        function draw() {
+            var config = {
+                container_id: "viz",
+                server_url: "bolt://localhost:7687",
+                server_user: "neo4j",
+                server_password: "coffee",
+                labels: {
+                      "Article": {
+                          "caption": "title",
+                          "size": "artrank",
+                          "community": "louvain_community"
+                    }
+                },
+                relationships: {
+                    "LINK_TO": {
+                        "thickness": "traffic",
+                        "caption": false
+                    },
+                    "SEARCH_FOR": {
+                        "thickness": "traffic",
+                        "caption": false
+                    }
+                },
+                initial_cypher: "MATCH (n)-[r]-(m) where n.cc_partition = 3890074 and m.cc_partition = 3890074 and n.artrank > 3 and m.artrank > 3 and r.traffic > 100 RETURN *"
+//                initial_cypher: "MATCH (n)-[r]-(m) where n.cc_partition = 3890074 and m.cc_partition = 3890074 and n.artrank > 5 and m.artrank > 5 and r.traffic > 100 RETURN *"
+
+
+
+//                initial_cypher: "MATCH (n)-[r]-(m) where n.partition3 = 952 and m.partition3 = 952 RETURN *"
+
+            //  initial_cypher: "MATCH (n), (m) where n.twitter_account <> 'realdonaldtrump' and m.twitter_account <> 'realdonaldtrump' and n.partition3 = 799 and m.partition3 = 799 with n, m match (n)-[r]-(m) RETURN *"
+            };
+
+            viz = new NeoVis.default(config);
+            viz.render();
+            console.log(viz);
+
+        }
+    </script>
+</head>
+<body onload="draw()">
+<div id="viz"></div>
+
+
+Cypher query: <textarea rows="4" cols=50 id="cypher"></textarea><br>
+    <input type="submit" value="Submit" id="reload">
+    <input type="submit" value="Stabilize" id="stabilize">
+
+
+</body>
+
+<script>
+    $("#reload").click(function() {
+
+        var cypher = $("#cypher").val();
+
+        if (cypher.length > 3) {
+            viz.renderWithCypher(cypher);
+        } else {
+            console.log("reload");
+            viz.reload();
+
+        }
+
+    });
+
+    $("#stabilize").click(function() {
+        viz.stabilize();
+    })
+
+</script>
+</html>
