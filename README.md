@@ -7,30 +7,30 @@ In this project, we use network analysis to derive the insights from the connect
 
 ## Analysis steps
 ### 1. Data quality analysis of available datasets
-   - Jupyter notebook on NBViewer: [data_quality_analysis.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/data_quality_analysis.ipynb)  
-   - Key takeaway from this notebook: [data cleaning steps and notes on further processing](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/data_quality_analysis.ipynb#Data-cleaning-steps-to-do-for-each-raw-dataset)  
+   - Jupyter notebook on NBViewer: [data_quality_analysis.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/data_quality_analysis.ipynb)  
+   - Key takeaway from this notebook: [data cleaning steps and notes on further processing](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/data_quality_analysis.ipynb#Data-cleaning-steps-to-do-for-each-raw-dataset)  
    - can run on local machine  
 
 ### 2. Exploratory data analysis of the English Wikipedia clickstream dataset for December 2018
-   - Jupyter notebook on NBViewer: [English_Wikipedia_EDA.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/English_Wikipedia_EDA.ipynb)  
+   - Jupyter notebook on NBViewer: [English_Wikipedia_EDA.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/English_Wikipedia_EDA.ipynb)  
    - can run on local machine  
 
 ### 3. Graph modeling and data import to neo4j  
    - data: the English Wikipedia clickstream dataset for December 2018
-   - Jupyter notebook on NBViewer: [English_Wikipedia_graph_modeling_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/English_Wikipedia_graph_modeling_AWS.ipynb)  
+   - Jupyter notebook on NBViewer: [English_Wikipedia_graph_modeling_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/English_Wikipedia_graph_modeling_AWS.ipynb)  
    - run on AWS EC2 (the data may be too large to run on local)  
 
 ### 4. Network analysis of the English Wikipedia clickstream  
    - data: the English Wikipedia clickstream dataset for December 2018
-   - Jupyter notebook on NBViewer: [English_Wikipedia_network_analysis_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/English_Wikipedia_network_analysis_AWS.ipynb)  
+   - Jupyter notebook on NBViewer: [English_Wikipedia_network_analysis_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/English_Wikipedia_network_analysis_AWS.ipynb)  
    - run on AWS EC2 (the data may be too large to run on local)  
 
 ### 5. Defining community topics with NLP  
    - data: the English Wikipedia clickstream dataset for December 2018
-   - Jupyter notebook on NBViewer: [English_Wikipedia_NLP_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/English_Wikipedia_NLP_AWS.ipynb)  
+   - Jupyter notebook on NBViewer: [English_Wikipedia_NLP_AWS.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/English_Wikipedia_NLP_AWS.ipynb)  
    - run on AWS EC2 (the data may be too large to run on local)  
 
 ### 6. Exploring obscure browsing on Wikipedia  
    - data: the English Wikipedia clickstream dataset for December 2018
-   - Jupyter notebook on NBViewer: [English_Wikipedia_deepWiki.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/wip-local/English_Wikipedia_deepWiki.ipynb)  
+   - Jupyter notebook on NBViewer: [English_Wikipedia_deepWiki.ipynb](https://nbviewer.jupyter.org/github/33eyes/wiki-clickstream-graph/blob/master/English_Wikipedia_deepWiki.ipynb)  
    - was run on AWS EC2, but after the neo4j data pull the rest of the code is fine to run on local
