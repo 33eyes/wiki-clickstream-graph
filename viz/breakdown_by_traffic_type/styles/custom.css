@@ -1,0 +1,31 @@
+body {
+  font-size: 16px;
+}
+
+
+
+.traffic-type-details {
+    border: 0.2em solid #a2baff;
+    padding: 0 1.5em;
+    margin-right: 60px;
+    margin-bottom: 20px;
+}
+
+.traffic-type-details h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.traffic-type-details ul {
+  padding: 0;
+}
+
+.traffic-type-details ul li {
+  list-style-type: none;
+}
+
+.details-num {
+  font-weight: bold;
+  font-size: 1.6em;
+  color: #737373;
+}
