@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Clickstream breakdown by traffic type</title>
+
+  <!-- Bootstrap: Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- fontawesome icons, feel free to delete if/when not needed anymore -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <link rel= "stylesheet" type= "text/css" href= "styles/custom.css">
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Clickstream traffic volume breakdown by type</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="trafficTypeChart"></div>
+
+
+        <div class="traffic-type-details">
+          <h2>Search engines traffic</h2>
+          <p><strong>Clickstream event:</strong> A user came from a search engine page to a Wikipedia article page.</p>
+          <div class="row">
+            <div class="col-md-2">
+              <strong>Volume:</strong>
+            </div>
+            <div class="col-md-10">
+              <ul>
+                <li><span class="details-num traffic-count">30 billion</span> clickstream events</li>
+                <li><span class="details-num traffic-pct">20%</span> of all traffic to Wikipedia articles</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <strong>Reach:</strong>
+            </div>
+            <div class="col-md-10">
+              <ul>
+                <li><span class="details-num articles-count">50 million</span> Wikipedia articles</li>
+                <li><span class="details-num articles-visited-pct">40%</span> of all Wikipedia articles visited by users in December 2018</li>
+                <li><span class="details-num articles-existed-pct">30%</span> of all Wikipedia articles that existed in December 2018</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="top-traffic-list">
+          Top traffic articles list goes here
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- jquery js -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Bootstrap compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+    <!-- custom viz functions -->
+    <script src="js/charts.js"></script>
+
+
+    <script>
+      async function f() {
+        vizData = await d3.csv("data/traffic_by_type.csv");
+
+        console.log(vizData);
+
+        donutChart(vizData);
+      }
+
+      $(document).ready(function(){
+        f();
+      });
+
+    </script>
+
+</body>
+</html>
