@@ -7,11 +7,17 @@ h1 {
   text-shadow: 0px 0px 20px white;
   margin-bottom: 14px;
 }
+h1 .subtitle {
+  font-size: 0.6em;
+}
 
 p {
   text-align: justify;
 }
 
+ul {
+  margin-bottom: 10px;
+}
 
 .hide {
   display: none;
