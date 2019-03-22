@@ -2,6 +2,13 @@ body {
   font-size: 16px;
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
+.hide {
+  display: none;
+}
 
 
 .traffic-type-details {
@@ -16,6 +23,10 @@ body {
   margin-top: 10px;
 }
 
+.traffic-type-details p {
+  text-align: justify;
+}
+
 .traffic-type-details ul {
   padding: 0;
 }
@@ -28,4 +39,45 @@ body {
   font-weight: bold;
   font-size: 1.6em;
   color: #737373;
+}
+
+
+/* table styles */
+.top-traffic-list h2 {
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.top-traffic-list h3 {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 14px;
+  color: #737373;
+  font-weight: bold;
+}
+
+.top-traffic-list table {
+  border-top: 3px solid #a2baff;
+  min-width: 520px;
+}
+.top-traffic-list table th {
+  padding-top: 12px;
+}
+td, th {
+  padding: 2px 8px;
+}
+
+td:first-of-type, th:first-of-type {
+  padding-left: 0;
+	padding-right: 6px;
+  width: 20px;
+}
+
+td.num-col, th.num-col {
+  text-align: right;
+}
+
+.top-traffic-list table tbody tr {
+  border-bottom: 2px solid white;
 }

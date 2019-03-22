@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Clickstream breakdown by traffic type</title>
+  <title>Wikipedia clickstream traffic breakdown by type</title>
 
   <!-- Bootstrap: Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>Clickstream traffic volume breakdown by type</h1>
+        <h1>Wikipedia clickstream traffic breakdown by type</h1>
       </div>
     </div>
     <div class="row">
@@ -32,13 +32,41 @@
 
 
         <div class="traffic-type-details">
-          <h2>Search engines traffic</h2>
-          <p><strong>Clickstream event:</strong> A user came from a search engine page to a Wikipedia article page.</p>
+          <div class="details-text" label ="search engines">
+            <h2>Search engines traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> A user came from a search engine page to a Wikipedia article page.</p>
+          </div>
+          <div class="details-text hide" label="empty referer">
+            <h2>Empty referer traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> An empty referer to a Wikipedia article page. This could be the result of a browser homepage setting, a security measure, a bot, etc. (<a href="https://stackoverflow.com/questions/6880659/in-what-cases-will-http-referer-be-empty" target="_blank">source</a>)</p>
+          </div>
+          <div class="details-text hide" label="other Wikimedia">
+            <h2>Other Wikimedia traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> A user came from some other Wikimedia project page (including other Wikipedias) to a Wikipedia article page.</p>
+          </div>
+          <div class="details-text hide" label="external websites">
+            <h2>External websites traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> A user came from an external website to a Wikipedia article page.</p>
+          </div>
+          <div class="details-text hide" label="unknown">
+            <h2>Unknown traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> An unknown referer to a Wikipedia article page. This is a catch-all external traffic category, for external traffic that does not fit into any of the other traffic types listed here.</p>
+          </div>
+          <div class="details-text hide" label="links">
+            <h2>Links traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> A user came from a Wikipedia article A to a Wikipedia article B, where A has a link to B.</p>
+          </div>
+          <div class="details-text hide" label="internal search">
+            <h2>Internal search traffic to Wikipedia</h2>
+            <p><strong>Clickstream event:</strong> A user came from a Wikipedia article A to a Wikipedia article B, where A does not have a link to B. This happens when the user gets to the second article by searching from the first article, or if the referer is spoofed (according to <a href="https://meta.wikimedia.org/wiki/Research:Wikipedia_clickstream#Format" target="_blank">the Wikipedia clickstream datasets format description</a>).
+            <br>To keep things simple, we're going with the most likely explanation here and assuming that these clickstream events are internal searches. </p>
+          </div>
+
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-sm-2">
               <strong>Volume:</strong>
             </div>
-            <div class="col-md-10">
+            <div class="col-sm-10">
               <ul>
                 <li><span class="details-num traffic-count">30 billion</span> clickstream events</li>
                 <li><span class="details-num traffic-pct">20%</span> of all traffic to Wikipedia articles</li>
@@ -46,10 +74,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-sm-2">
               <strong>Reach:</strong>
             </div>
-            <div class="col-md-10">
+            <div class="col-sm-10">
               <ul>
                 <li><span class="details-num articles-count">50 million</span> Wikipedia articles</li>
                 <li><span class="details-num articles-visited-pct">40%</span> of all Wikipedia articles visited by users in December 2018</li>
@@ -61,7 +89,17 @@
       </div>
       <div class="col-md-6">
         <div class="top-traffic-list">
-          Top traffic articles list goes here
+          <h2>Top articles</h2>
+          <h3>by <span class="top-list-label">search engines</span> traffic</h3>
+          <table id="t1">
+              <thead>
+                  <tr>
+                    <th class="num-col">#</th>
+                    <th>Article</th>
+                    <th class="num-col">Traffic volume</th>
+                  </tr>
+              </thead>
+          </table>
         </div>
       </div>
     </div>
@@ -86,11 +124,34 @@
 
     <script>
       async function f() {
+        /*
+        // Datasets on local
         vizData = await d3.csv("data/traffic_by_type.csv");
 
-        console.log(vizData);
+        top20_external_search = await d3.tsv("data/top20_external_search_traffic.tsv");
+        top20_empty_referer = await d3.tsv("data/top20_empty_referer_traffic.tsv");
+        top20_external_website = await d3.tsv("data/top20_external_website_traffic.tsv");
+        top20_other_wikimedia = await d3.tsv("data/top20_other_wikimedia_traffic.tsv");
+        top20_unknown_external = await d3.tsv("data/top20_unknown_external_traffic.tsv");
+        top20_link_in = await d3.tsv("data/top20_link_in_traffic.tsv");
+        top20_search_in = await d3.tsv("data/top20_search_in_traffic.tsv");
+        */
 
-        donutChart(vizData);
+        // Datasets on github
+        vizData = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/traffic_by_type.csv");
+
+        top20_external_search = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_external_search_traffic.tsv");
+        top20_empty_referer = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_empty_referer_traffic.tsv");
+        top20_external_website = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_external_website_traffic.tsv");
+        top20_other_wikimedia = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_other_wikimedia_traffic.tsv");
+        top20_unknown_external = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_unknown_external_traffic.tsv");
+        top20_link_in = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_link_in_traffic.tsv");
+        top20_search_in = await d3.tsv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/breakdown_by_traffic_type/data/top20_search_in_traffic.tsv");
+
+        let init_selection = "search engines"
+        donutChart(vizData, init_selection);
+        detailsCard(vizData, init_selection);
+        top20list(init_selection);
       }
 
       $(document).ready(function(){
