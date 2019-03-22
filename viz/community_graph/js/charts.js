@@ -228,6 +228,36 @@ function loadGraph(nodes, edges) {
 
       document.getElementById("community-density").innerHTML = Math.round(selectedNode[0].density_delta * 100)/100;
 
+      // update top articles top articles lists
+      updateTopList(topViewedArticles, node_id, "top-views");
+      updateTopList(topInfluencerArticles, node_id, "influencers");
+      updateTopList(topConnectorArticles, node_id, "connectors");
+      // let wikiroot = "https://en.wikipedia.org/wiki/";
+      // //topViewedArticles
+      // let top_viewed = topViewedArticles.filter(function(d) {
+      //   return d.louvain_community == node_id;
+      // });
+      // let topViewedList = document.getElementById("top-views");
+      //
+      // // remove any existing data
+      // while (topViewedList.firstChild) {
+      //     topViewedList.removeChild(topViewedList.firstChild);
+      // }
+      //
+      // top_viewed.forEach(function(row) {
+      //   let formatted_title = row["title"].replace(/_/g,' ');
+      //   if (formatted_title.length > 32) {
+      //     formatted_title = formatted_title.substring(0, 32) + "...";
+      //   }
+      //   let html = "<a href='" + wikiroot + row["title"]
+      //             + "' target='_blank'>" + formatted_title + "</a>";
+      //   let newListItem = document.createElement("li");
+      //   //newListItem.setAttribute('id', elementId);
+      //   newListItem.innerHTML = html;
+      //   topViewedList.appendChild(newListItem);
+      // });
+
+
     } else {
       card.style.display = "none";
     }
@@ -259,5 +289,35 @@ function loadGraph(nodes, edges) {
 
     return ner_dict[ner];
   }
+
+// call example: updateTopList(topViewedArticles, node_id, "top-views");
+  function updateTopList(data, community_id, list_id){
+    let wikiroot = "https://en.wikipedia.org/wiki/";
+
+    let top_list_data = data.filter(function(d) {
+      return d.louvain_community == community_id;
+    });
+    let topListElement = document.getElementById(list_id);
+
+    // remove any existing data
+    while (topListElement.firstChild) {
+        topListElement.removeChild(topListElement.firstChild);
+    }
+
+    top_list_data.forEach(function(row) {
+      let formatted_title = row["title"].replace(/_/g,' ');
+      if (formatted_title.length > 32) {
+        formatted_title = formatted_title.substring(0, 32) + "...";
+      }
+      let html = "<a href='" + wikiroot + row["title"]
+                + "' target='_blank'>" + formatted_title + "</a>";
+      let newListItem = document.createElement("li");
+      //newListItem.setAttribute('id', elementId);
+      newListItem.innerHTML = html;
+      topListElement.appendChild(newListItem);
+    });
+
+  }
+
 
 }

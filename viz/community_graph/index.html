@@ -169,6 +169,12 @@
         //console.log(communityLinkEdges);
         communitySearchEdges = await d3.csv("data/community_search_edges.csv");
 
+        // Top lists datasets
+        topViewedArticles = await d3.csv("data/community_top_viewed_articles_clean.csv");
+        //console.log(topViewedArticles);
+        topInfluencerArticles = await d3.csv("data/community_top_influencer_articles_clean.csv");
+        topConnectorArticles = await d3.csv("data/community_top_connector_articles_clean.csv");
+
 
 /*
   // create an array with nodes
