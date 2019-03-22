@@ -1,0 +1,210 @@
+body {
+  font-size: 16px;
+}
+
+h1 {
+  color: #4c4c4c;
+  text-shadow: 0px 0px 20px white;
+  margin-bottom: 14px;
+}
+
+p {
+  text-align: justify;
+}
+
+
+.hide {
+  display: none;
+}
+
+#header {
+  position: absolute;
+  margin: 10px 40px;
+}
+
+#legend {
+  //display: inline-block;
+  position: absolute;
+  top: 72px;
+  background: #fffffff0;
+  border: 4px solid #6b747d38;
+  margin-left: 40px;
+  padding: 10px 10px;
+  width: 340px;
+  color: #4c4c4c;
+}
+
+#legend h1 {
+  font-size: 1.8em;
+  text-align: center;
+}
+
+#legend h3 {
+  font-size: 1.1em;
+  margin-bottom: 4px;
+}
+
+#legend ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+#high-density-icon {
+  color: #292929;
+}
+#low-density-icon {
+  //color: #e6e6e6;
+  color: #c1c1c1;
+}
+#line-link-icon {
+  color: #5D88FE;
+}
+#line-search-icon {
+  color: #C9E26E;
+}
+i.fa-long-arrow-alt-right {
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+
+
+#graphChart {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -10;
+}
+
+/* Customize graph vis tooltip */
+div.vis-tooltip {
+  padding: 5px 10px;
+  color: #4c4c4c;
+  background-color: #ffffffeb;
+  border: 2px solid black;
+}
+
+
+/* Community details card */
+#community-details-card {
+  position: absolute;
+  right: 0;
+  //top: 72px;
+  top: 10px;
+  background: #fffffff0;
+  border: 4px solid #6b747d38;
+  margin-right: 40px;
+  padding: 10px 10px;
+  width: 340px;
+  color: #4c4c4c;
+}
+
+#community-details-card h2 {
+  font-size: 1.4em;
+  text-align: center;
+}
+#community-details-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 4px;
+}
+
+#community-details-card ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+
+/*Tooltip containers */
+#community-details-card .community-ner, .num-col.community-traffic {
+  cursor: help;
+  position: relative;
+}
+.top-articles-button {
+  position: relative;
+}
+
+/* Tooltip text */
+.community-ner .tooltiptext, .num-col.community-traffic .tooltiptext,
+.top-articles-button .tooltiptext {
+  visibility: hidden;
+  //min-width: 200px;
+  background-color: #555;
+  color: #fff;
+  font-style: normal;
+  padding: 5px 10px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  text-align: left;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.top-articles-button .tooltiptext {
+  width: 160px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.community-ner:hover .tooltiptext, .num-col.community-traffic:hover .tooltiptext,
+.top-articles-button:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Traffic table styles */
+#community-details-card table {
+  margin-left: -20px;
+  min-width: 106%;
+  margin-bottom: 8px;
+  font-size: 0.85em;
+}
+
+#community-details-card table td {
+  border: 1px solid #dee2e6;
+  padding: 1px 4px;
+}
+
+td.num-col, th.num-col {
+  text-align: right;
+}
+
+#ext-search-stats-row {
+  color: #757575;
+}
+
+/* Top articles tabs styles */
+div.top-tab-buttons {
+  background: #6b747d;
+  text-align: center;
+}
+button.top-articles-button {
+  background: #6b747d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 2px 4px;
+  margin: 0px 0px;
+  width: 32%;
+  font-size: .92em;
+}
+button.top-articles-button:focus {
+  outline: none;
+}
+
+.top-articles-list {
+  margin-bottom: 0;
+  padding-left: 22px;
+  border: 1px solid #6a737d;
+}
+
+button.top-articles-button.selected-btn {
+  background: #42464a;
+}
