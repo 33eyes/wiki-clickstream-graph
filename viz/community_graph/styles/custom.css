@@ -28,6 +28,48 @@ ul {
   margin: 10px 40px;
 }
 
+#legend-btn {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.search-box {
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: .25rem;
+    margin-top: 0em;
+    height: 38px;
+}
+div.search-box p {
+  display: inline;
+  margin-left: 10px;
+}
+div.search-box input {
+  margin: 4px;
+  border: 0;
+  border-radius: .25rem;
+  width: 94px;
+  padding-left: 10px;
+}
+div.search-box button {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  cursor: pointer;
+  margin-right: 2px;
+}
+div.search-box button:active {
+  border-radius: 4px;
+}
+div.search-box button:focus {
+  outline: none;
+}
+
+
 #legend {
   //display: inline-block;
   position: absolute;
@@ -113,6 +155,11 @@ div.vis-tooltip {
 #community-details-card h3 {
   font-size: 1.2em;
   margin-bottom: 4px;
+}
+
+#community-details-card hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 #community-details-card ul {

@@ -1,6 +1,17 @@
 
 
 function makeNodesArray(){
+
+  // topic term highlighting
+  let topic_terms_to_highlight = prompt("Enter lemmatized topic terms to highlight. \n\nExamples: \nIf we lemmatize the phrase 'United States', we get 'unit' and 'state'.\n - to get nodes with both 'unit' and 'state', enter unit && state. \n - to get nodes with 'unit' and/or 'state', enter unit || state. \n - to get nodes with 'unit' but not 'state', enter unit && !(state).", "unit && state");
+  console.log(topic_terms_to_highlight);
+  topic_terms_to_highlight = topic_terms_to_highlight.replace(/[-\w]+/g, "targetstring.toLowerCase().search('$&')>=0");
+  let term_highlight_color = "magenta";
+  let term_highlight_border_width = 2;
+  let topic_terms_matches_count = 0;
+
+
+
   // Load nodes and associated data, set appropriate values as node options
   let nodesArray = []
   communityNodes.forEach(function(row) {
@@ -17,6 +28,17 @@ function makeNodesArray(){
     //   hide_node = true;
     // }
 
+    // assign highlighting to nodes
+    let border_color = "white";
+    let border_width = 1;
+    let targetstring = row["topic_snapshot"];
+    if(eval(topic_terms_to_highlight)){
+      border_color = term_highlight_color;
+      border_width = term_highlight_border_width;
+
+      topic_terms_matches_count++;
+    }
+
 
     nodesArray.push({
       id: +row["louvain_community"],
@@ -24,8 +46,9 @@ function makeNodesArray(){
       value: +row["articles_count"],
       x: +row["x"],
       y: +row["y"],
+      borderWidth: border_width,
       color: {
-        border: 'white',
+        border: border_color,
         background: greyscale_rgb,
         highlight: {
           border: 'black',
@@ -48,6 +71,8 @@ function makeNodesArray(){
       search_traffic: +row["search_traffic"]
     });
   });
+
+  alert("Matched " + topic_terms_matches_count + " communities.");
 
   return nodesArray;
 }
@@ -190,7 +215,6 @@ function loadGraph(nodes, edges) {
     }
 
   }, false);
-
 
 
   function displayDetailsCard(node_id){
@@ -341,6 +365,7 @@ function toggleLegend() {
   }
 
 }
+
 
 function showTopArticles(listId) {
   // Update the buttons
