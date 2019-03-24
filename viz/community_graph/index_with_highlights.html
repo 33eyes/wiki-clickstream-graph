@@ -113,27 +113,9 @@
       <button class="top-articles-button" id="influencers-btn" onclick="showTopArticles('influencers')">Influencers<span class='tooltiptext'>Articles with the most connections within the community</span></button>
       <button class="top-articles-button" id="connectors-btn" onclick="showTopArticles('connectors')">Connectors<span class='tooltiptext'>Articles that bring in the most traffic from other communities</span></button>
     </div>
-    <ol class="top-articles-list" id="top-views">
-      <li><a href="#">Article 1</a></li>
-      <li><a href="#">Article 1</a></li>
-      <li><a href="#">Article 1</a></li>
-      <li><a href="#">Article 1</a></li>
-      <li><a href="#">Article 1</a></li>
-    </ol>
-    <ol class="top-articles-list" id="influencers" style="display:none">
-      <li><a href="#">Article 2</a></li>
-      <li><a href="#">Article 2</a></li>
-      <li><a href="#">Article 2</a></li>
-      <li><a href="#">Article 2</a></li>
-      <li><a href="#">Article 2</a></li>
-    </ol>
-    <ol class="top-articles-list" id="connectors" style="display:none">
-      <li><a href="#">Article 3</a></li>
-      <li><a href="#">Article 3</a></li>
-      <li><a href="#">Article 3</a></li>
-      <li><a href="#">Article 3</a></li>
-      <li><a href="#">Article 3</a></li>
-    </ol>
+    <ol class="top-articles-list" id="top-views"></ol>
+    <ol class="top-articles-list" id="influencers" style="display:none"></ol>
+    <ol class="top-articles-list" id="connectors" style="display:none"></ol>
   </div>
 
   <div id="graphChart"></div>
@@ -166,10 +148,8 @@
 
     <script>
       async function f() {
-
+/*
         // Datasets on local
-
-        // This was for vis.js
         communityNodes = await d3.csv("data/community_nodes.csv");
         //console.log(communityNodes);
         communityLinkEdges = await d3.csv("data/community_link_edges.csv");
@@ -181,38 +161,23 @@
         //console.log(topViewedArticles);
         topInfluencerArticles = await d3.csv("data/community_top_influencer_articles_clean.csv");
         topConnectorArticles = await d3.csv("data/community_top_connector_articles_clean.csv");
-
-
-/*
-  // create an array with nodes
-  var nodes = new vis.DataSet([
-    {id: 1, title: 'Node 1', value: 10, x: 100, y: 200},
-    {id: 2, title: 'Node 2', value: 20, x: 150, y: 250},
-    {id: 3, title: 'Node 3', value: 30, x: 50, y: 300},
-    {id: 4, title: 'Node 4', value: 40, x: 150, y: 400},
-    {id: 5, title: 'Node 5', value: 50, x: 500, y: 350}
-  ]);
-
-  // create an array with edges
-  var edges = new vis.DataSet([
-    {from: 1, to: 3, value: 10, color: {color: "#5D88FE", highlight: "#0145FE", hover: "#0145FE"} },
-    {from: 1, to: 2, value: 20, color: {color: "#5D88FE", highlight: "#0145FE", hover: "#0145FE"} },
-    {from: 2, to: 3, value: 15, color: {color: "#C9E26E", highlight: "#97B724", hover: "#97B724"} },
-    {from: 2, to: 4, value: 30, color: {color: "#C9E26E", highlight: "#97B724", hover: "#97B724"} },
-    {from: 2, to: 5, value: 50, color: {color: "#5D88FE", highlight: "#0145FE", hover: "#0145FE"} }
-  ]);
-
-console.log(edges);
 */
-        /*
+
+
         // Datasets on github
-        linkEdges = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/cypher_scripts/inter_community_link_edges.out");
-        searchEdges = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/cypher_scripts/inter_community_search_edges.out");
-        */
+        communityNodes = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_nodes.csv");
+        //console.log(communityNodes);
+        communityLinkEdges = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_link_edges.csv");
+        //console.log(communityLinkEdges);
+        communitySearchEdges = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_search_edges.csv");
 
-        //console.log(searchEdges);
+        // Top lists datasets
+        topViewedArticles = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_top_viewed_articles_clean.csv");
+        //console.log(topViewedArticles);
+        topInfluencerArticles = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_top_influencer_articles_clean.csv");
+        topConnectorArticles = await d3.csv("https://raw.githubusercontent.com/33eyes/wiki-clickstream-graph/master/viz/community_graph/data/community_top_connector_articles_clean.csv");
 
-        //loadGraph();
+
 
         let network;
 

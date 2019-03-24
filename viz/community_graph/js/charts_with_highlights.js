@@ -55,7 +55,7 @@ function makeNodesArray(){
           background: greyscale_rgb
         },
         hover: {
-          border: 'white',
+          border: border_color,
           background: greyscale_rgb
         }
       },
