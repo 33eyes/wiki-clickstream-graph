@@ -169,13 +169,29 @@ function donutChart(ds, initial_selection){
   // Donut center number
   vis.append("text")
      .attr("text-anchor", "middle")
+     .text("Traffic")
+     .style("font-size", 32)
+     .attr("fill", "#737373")
+     .attr("x", 4)
+     .attr("y", -24);
+     vis.append("text")
+        .attr("text-anchor", "middle")
+        .text("volume")
+        .style("font-size", 32)
+        .attr("fill", "#737373")
+        .attr("x", 4)
+        .attr("y", 4);
+  vis.append("text")
+     .attr("text-anchor", "middle")
+     .text("Traffic volume")
      .text(Math.round(initial_selection_data.traffic_pct) + "%")
      .style("font-size", 42)
      .style("font-weight", "bold")
      .attr("fill", "#737373")
      .attr("x", 4)
-     .attr("y", 14)
+     .attr("y", 44)
      .attr("class", "donut-center");
+
 
 
   // update the viz when a traffic type is clicked on in donut chart/legend
