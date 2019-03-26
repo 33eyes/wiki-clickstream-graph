@@ -69,6 +69,30 @@ div.search-box button:focus {
   outline: none;
 }
 
+#topic-terms-selected-box {
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid;
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: .25rem;
+  margin-top: 0em;
+  min-height: 38px;
+  padding: 4px 10px;
+  font-weight: bold;
+}
+#topic-terms-selected {
+font-weight: normal;
+}
+#communities-found {
+font-weight: normal;
+}
+button, div.search-box, #topic-terms-selected-box {
+  margin-bottom: 4px;
+}
+
+
 
 #legend {
   //display: inline-block;
