@@ -1,9 +1,20 @@
 # Exploring Wikipedia clickstream data
 
 ## Description  
-Wikipedia regularly releases clickstream datasets that capture aggregated page-to-page user visits to Wikipedia articles. These datasets are too large to open, and while standard statistical methods can be used to get traffic volume statistics and top visited articles, they leave out the insights contained in the interconnections between the Wikipedia articles.  
+Wikipedia regularly releases clickstream datasets that capture aggregated page-to-page user visits to Wikipedia articles. These datasets are very large, and while standard statistical methods can be used to get traffic volume statistics and top visited articles, they leave out the insights contained in the interconnections between the Wikipedia articles.  
 In this project, we use network analysis to derive the insights from the connections in the data. We model the clickstream data as a graph/network, describe the resulting graph and its most influential nodes, conduct community detection and natural language processing analyses to identify any themes/topics within the clickstream data, and use network shell decomposition to investigate obscure browsing on Wikipedia.  
 
+## Results  
+The initial findings are described in [this blogpost](http://www.arigu.me/posts/analyzing-our-collective-wikipedia-browsing-history/), along with the visualizations.  
+
+## Visualizations  
+##### for the December 2018 clickstream data  
+ - [An interactive viz of Wikipedia traffic breakdown by type](http://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-1/)  
+ - [A network/graph viz of Wikipedia articles interconnected by the clickstream traffic between them](https://upload.wikimedia.org/wikipedia/commons/4/46/English_Wikipedia_clickstream_communities_December_2018.png)  
+ - [An interactive viz of the article communities graph](http://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-2/)   
+ - [An interactive viz of the article communities graph with highlighting by topic terms](http://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-3/)  
+
+---  
 
 ## Analysis steps
 ### 1. Data quality analysis of available datasets
