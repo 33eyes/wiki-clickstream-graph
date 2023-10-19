@@ -8,10 +8,10 @@ In this project, we use network analysis to derive the insights from the connect
 The initial findings are described in [this blogpost](https://www.arigu.me/2019/03/24/analyzing-our-collective-Wikipedia-browsing-history.html), along with the visualizations.  
 ## Visualizations  
 ##### for the December 2018 clickstream data  
- - [An interactive viz of Wikipedia traffic breakdown by type](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-1/)  
+ - [An interactive viz of Wikipedia traffic breakdown by type](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-1)  
  - [A network/graph viz of Wikipedia articles interconnected by the clickstream traffic between them](https://upload.wikimedia.org/wikipedia/commons/4/46/English_Wikipedia_clickstream_communities_December_2018.png)  
- - [An interactive viz of the article communities graph](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-2/)   
- - [An interactive viz of the article communities graph with highlighting by topic terms](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-3/)  
+ - [An interactive viz of the article communities graph](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-2)   
+ - [An interactive viz of the article communities graph with highlighting by topic terms](https://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-3)  
 
 ---  
 
