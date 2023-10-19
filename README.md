@@ -5,8 +5,7 @@ Wikipedia regularly releases clickstream datasets that capture aggregated page-t
 In this project, we use network analysis to derive the insights from the connections in the data. We model the clickstream data as a graph/network, describe the resulting graph and its most influential nodes, conduct community detection and natural language processing analyses to identify any themes/topics within the clickstream data, and use network shell decomposition to investigate obscure browsing on Wikipedia.  
 
 ## Results  
-The initial findings are described in [this blogpost](http://www.arigu.me/posts/analyzing-our-collective-wikipedia-browsing-history/), along with the visualizations.  
-
+The initial findings are described in [this blogpost](https://www.arigu.me/2019/03/24/analyzing-our-collective-Wikipedia-browsing-history.html), along with the visualizations.  
 ## Visualizations  
 ##### for the December 2018 clickstream data  
  - [An interactive viz of Wikipedia traffic breakdown by type](http://www.arigu.me/visualizations/analyzing-our-collective-wikipedia-browsing-history-viz-1/)  
